@@ -9,22 +9,22 @@ template <typename T>
 struct Dimensions {
     int operator()(int* coordinates, int* sizes, int dimensions)
     {
-        // TODO
     }
-};
+    };
 
 struct Integer {
-       typedef int T;
-       typedef Dimensions<T> Operation;
+    typedef int T;
+    typedef Dimensions<T> Operation;
 };
 
-int main(int argc, char *argv[])
-{
-
-    int dimensionSizes[2]={3,2};
+int main(int argc, char *argv[]) {
     int dimensions = 2;
-    int coordinates[2]={0,1};
+    int dimensionSizes[dimensions]={3,2};
+    int coordinates[dimensions]={0,1};
     Vector<Integer> array(dimensions, dimensionSizes);
     array.set(3, coordinates);
-    return 0;
+    cout<<array.get(coordinates);
+    array.set(7, coordinates);
+    cout<<array.get(coordinates);
+    return EXIT_SUCCESS;
 }
